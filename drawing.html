@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>drawing</title>
+    <style>
+        body, html {
+            height:100%;
+            margin:0;
+        }
+        #screen {
+            color:white;
+            background-color: black;
+            width: 100%;
+            height: 100%;
+        }
+        .dot {
+            background-color: white;
+            height: 5px;
+            width: 5px;
+            position: absolute;
+
+        }
+    </style>
+    <script>
+        function foo() {
+            const screen = document.getElementById('screen');
+            const dot = document.createElement("div");
+            dot.className = "dot";
+            dot.style.left = `${window.event.x}px`
+            dot.style.top = `${window.event.y}px`
+            screen.appendChild(dot)
+                // `${window.event.x}, ${window.event.y}`);
+        }
+    </script>
+</head>
+<body>
+    <div id=screen onclick="foo()">
+    </div>
+</body>
+
+</html>

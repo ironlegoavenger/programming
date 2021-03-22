@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1000 second Countdown</title>
+    <style>
+        body {
+            font-size: 300px;
+        }
+    </style>
+    <script>
+        let howMany = 1000
+        function clear(div) {
+            div.innerHTML = "";
+        }
+        function everySecond() {
+            setTimeout(everySecond, 1000);
+            if (howMany == 0) {
+                howMany = 1;
+            }
+            // howMany = howmany + 1;
+            // howMany += 1;
+            howMany--;
+
+            const display = document.getElementById('display');
+            clear(display);
+            // display.remove(display.firstChild);
+            display.append(howMany);
+        }
+        setTimeout(everySecond, 1000);
+    </script>
+</head>
+<body>
+    <div id="display">1000</div>
+</body>
+
+</html>
