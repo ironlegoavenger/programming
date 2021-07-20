@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script>
+            let cats = 0
+
+            function updateSpans() {
+                document.getElementById('cats').textContent = cats
+            }
+
+            function clickedTheCat() {
+            cats = cats + 1
+            updateSpans()
+            }
+
+        </script>
+
+    </head>
+    <body>
+        cats = <span id="cats">0</span>
+        <img src="cat.jpg" onclick="clickedTheCat()" width="25%"/>
+    </body>
+</html>
