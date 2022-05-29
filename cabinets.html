@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function calculate() {
+                function tetration(base, height) {
+                    result = 1;
+                    while (height--) {
+                        result = Math.pow(base, result);
+                    }
+                    return result;
+                }
+                function upArrow(left, arrows, right) {
+                // math funny stuff   
+                }
+                const doors = document.getElementById('doors').value
+                const doorOpeningHeight = document.getElementById('doorOpeningHeight').value
+                const doorOverlayHeight = document.getElementById('doorOverlayHeight').value
+                const doorOpeningWidth = document.getElementById('doorOpeningWidth').value
+                const doorOverlayWidth = document.getElementById('doorOverlayWidth').value
+                const stileAndRail = document.getElementById('stileAndRail').value
+                const overlap = document.getElementById('overlap').value
+                const air = document.getElementById('air').value                
+                const doorSpacing = document.getElementById('doorSpacing').value
+                const doorWidth = +doorOpeningWidth + (doorOverlayWidth * 2);
+                const doorHeight = +doorOpeningHeight + (doorOverlayHeight * 2)
+                
+                const stuffToDisplay = {
+                    doorHeight: +doorOpeningHeight + (doorOverlayHeight * 2),
+                    doorWidth: +doorOpeningWidth + (doorOverlayWidth * 2),
+                    panelHeight: +doorHeight - (+stileAndRail * 2)+ overlap - air,
+                    panelWidth: +doorWidth - (+stileAndRail * 2)+ overlap - air,
+                };
+
+                
+
+                let awesomeness = 42;
+
+
+                switch(+doors) {
+                    case 0:
+                        awesomeness += 2;
+                        awesomeness = awesomness + 2;
+                        break;
+                    case 1:
+                        awesomeness *= 2;
+                        
+                        break;
+                    case 2:
+                        awesomeness = Math.pow(awesomeness, Math.pow(awesomeness, awesomeness));
+                        stuffToDisplay['doorWidth'] = ((doorOpeningWidth + (doorOverlayWidth * 2) - doorSpacing) / 2); 
+                        break;
+                    default:
+                        awesomeness = 0;
+                        break;
+                }
+
+                for (const [label, value] of Object.entries(stuffToDisplay)){
+                    document.getElementById(label).innerText = value
+                }
+                //alert(`awesomeness is ${awesomeness}`);
+                //alert(tetration(2,9))
+
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <div>
+                Number of Doors: 
+                <input type="text" id="doors" value="1"/>
+            </div>
+            <div>
+                Door opening height (Inches): 
+                <input type="text" id="doorOpeningHeight" value="0"/>
+            </div>
+            <div>
+                Door opening width (Inches): 
+                <input type="text" id="doorOpeningWidth" value="0"/>
+            </div> 
+            <div>
+                Door spacing (Inches): 
+                <input type="text" id="doorSpacing" value="0.25"/>
+            </div> 
+            <div>
+                Door overlay height (Inches): 
+                <input type="text" id="doorOverlayHeight" value="0.625"/>
+            </div>
+            <div>
+                Door overlay width (Inches): 
+                <input type="text" id="doorOverlayWidth" value="0.625"/>
+            </div>
+            <div>
+                Stile and rail (Inches): 
+                <input type="text" id="stileAndRail" value="0"/>
+            </div> 
+            <div>
+                Overlap (Inches): 
+                <input type="text" id="overlap" value="0"/>
+            </div> 
+            <div>
+                Air (Inches): 
+                <input type="text" id="air" value="0"/>
+            </div> 
+            <input value="calculate" type="button" onClick="javascript:calculate();"/>
+        </form>
+        <hr/>
+        <div>
+            Door Height: 
+            <span id="doorHeight">
+                press 'calculate' to calculate
+            </span>
+        </div>
+        <div>
+            Door Width: 
+            <span id="doorWidth">
+                press 'calculate' to calculate
+            </span>
+        </div>
+        <div>
+            Panel Height: 
+            <span id="panelHeight">
+                press 'calculate' to calculate
+            </span>
+        </div>
+        <div>
+            Panel Width: 
+            <span id="panelWidth">
+                press 'calculate' to calculate
+            </span>
+        </div>
+    </body>
+</html>
