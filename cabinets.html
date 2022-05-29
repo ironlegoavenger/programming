@@ -2,6 +2,18 @@
 <html>
     <head>
         <script>
+        // i = i + 1
+        // i += 1
+        // i++
+
+        // i = i + 23
+        // i += 23
+            function base2simplify(numerator, denominator) {
+                if (numerator % 2 == 0)
+                    return base2simplify(numerator/2, denominator/2)
+                return `${numerator}/${denominator}`
+            }
+
             function calculate() {
                 function tetration(base, height) {
                     result = 1;
@@ -13,6 +25,7 @@
                 function upArrow(left, arrows, right) {
                 // math funny stuff   
                 }
+
                 const doors = document.getElementById('doors').value
                 const doorOpeningHeight = document.getElementById('doorOpeningHeight').value
                 const doorOverlayHeight = document.getElementById('doorOverlayHeight').value
@@ -32,7 +45,7 @@
                     panelWidth: +doorWidth - (+stileAndRail * 2)+ overlap - air,
                 };
 
-                
+                                
 
                 let awesomeness = 42;
 
@@ -129,5 +142,31 @@
                 press 'calculate' to calculate
             </span>
         </div>
+            <table id='legend' border="1">
+            <tr>
+                <th>Fraction</th>
+                <th>Decimal</th>
+            </tr>
+
+        </table>
     </body>
+    <script>
+        
+    const legend = document.getElementById('legend')
+
+        for (let i = 1; i < 16 ;i++) {
+        
+            const row = document.createElement('tr');
+
+            const left = document.createElement('td');
+            left.innerText = `${base2simplify(i, 16)}"`;
+            row.appendChild(left);
+
+            const right = document.createElement('td');
+            right.innerText = `${i/16}"`;
+            row.appendChild(right);
+
+            legend.appendChild(row)
+        } 
+    </script> 
 </html>
