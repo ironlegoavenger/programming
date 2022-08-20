@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>
+            Drawer Calculator
+        </title>
+
         <script>
         // i = i + 1
         // i += 1
@@ -26,30 +30,30 @@
                 // math funny stuff   
                 }
 
-                const doors = document.getElementById('doors').value
-                const doorOpeningHeight = document.getElementById('doorOpeningHeight').value
-                const doorOverlayHeight = document.getElementById('doorOverlayHeight').value
-                const doorOpeningWidth = document.getElementById('doorOpeningWidth').value
-                const doorOverlayWidth = document.getElementById('doorOverlayWidth').value
+                const drawers = document.getElementById('drawers').value
+                const drawerOpeningHeight = document.getElementById('drawerOpeningHeight').value
+                const drawerOverlayHeight = document.getElementById('drawerOverlayHeight').value
+                const drawerOpeningWidth = document.getElementById('drawerOpeningWidth').value
+                const drawerOverlayWidth = document.getElementById('drawerOverlayWidth').value
                 const stileAndRail = document.getElementById('stileAndRail').value
                 const overlap = document.getElementById('overlap').value
                 const air = document.getElementById('air').value                
-                const doorSpacing = document.getElementById('doorSpacing').value
-                const doorWidth = +doorOpeningWidth + (doorOverlayWidth * 2);
-                const doorHeight = +doorOpeningHeight + (doorOverlayHeight * 2)
+                const drawerSpacing = document.getElementById('drawerSpacing').value
+                const drawerWidth = +drawerOpeningWidth + (drawerOverlayWidth * 2);
+                const drawerHeight = +drawerOpeningHeight + (drawerOverlayHeight * 2)
                 
                 const stuffToDisplay = {
-                    doorHeight: +doorOpeningHeight + (doorOverlayHeight * 2),
-                    doorWidth: +doorOpeningWidth + (doorOverlayWidth * 2),
-                    panelHeight: +doorHeight - (+stileAndRail * 2) + +overlap - +air,
-                    panelWidth: +doorWidth - (+stileAndRail * 2) + +overlap - +air,
+                    drawerHeight: +drawerOpeningHeight + (drawerOverlayHeight * 2),
+                    drawerWidth: +drawerOpeningWidth + (drawerOverlayWidth * 2),
+                    panelHeight: +drawerHeight - (+stileAndRail * 2) + +overlap - +air,
+                    panelWidth: +drawerWidth - (+stileAndRail * 2) + +overlap - +air,
                 };
 
 
                 // let awesomeness = 42;
 
 
-                switch(+doors) {
+                switch(+drawers) {
                     case 0:
                         // awesomeness += 2;
                         // awesomeness = awesomness + 2;
@@ -60,7 +64,7 @@
                         break;
                     case 2:
                         // awesomeness = Math.pow(awesomeness, Math.pow(awesomeness, awesomeness));
-                        stuffToDisplay['doorWidth'] = ((+doorOpeningWidth + (+doorOverlayWidth * 2) - +doorSpacing) / 2); 
+                        stuffToDisplay['drawerWidth'] = ((+drawerOpeningWidth + (+drawerOverlayWidth * 2) - +drawerSpacing) / 2); 
                         break;
                     default:
                         // awesomeness = 0;
@@ -79,28 +83,28 @@
     <body>
         <form>
             <div>
-                Number of Doors: 
-                <input type="text" id="doors" value="1"/>
+                Number of Drawers: 
+                <input type="text" id="drawers" value="1"/>
             </div>
             <div>
-                Door opening height (Inches): 
-                <input type="text" id="doorOpeningHeight" value="0"/>
+                Drawer opening height (Inches): 
+                <input type="text" id="drawerOpeningHeight" value="0"/>
             </div>
             <div>
-                Door opening width (Inches): 
-                <input type="text" id="doorOpeningWidth" value="0"/>
+                Drawer opening width (Inches): 
+                <input type="text" id="drawerOpeningWidth" value="0"/>
             </div> 
             <div>
-                Door spacing (Inches): 
-                <input type="text" id="doorSpacing" value="0.25"/>
+                Drawer spacing (Inches): 
+                <input type="text" id="drawerSpacing" value="0.25"/>
             </div> 
             <div>
-                Door overlay height (Inches): 
-                <input type="text" id="doorOverlayHeight" value="0.625"/>
+                Drawer overlay height (Inches): 
+                <input type="text" id="drawerOverlayHeight" value="0.625"/>
             </div>
             <div>
-                Door overlay width (Inches): 
-                <input type="text" id="doorOverlayWidth" value="0.625"/>
+                Drawer overlay width (Inches): 
+                <input type="text" id="drawerOverlayWidth" value="0.625"/>
             </div>
             <div>
                 Stile and rail (Inches): 
@@ -118,14 +122,14 @@
         </form>
         <hr/>
         <div>
-            Door Height: 
-            <span id="doorHeight">
+            Drawer Height: 
+            <span id="drawerHeight">
                 press 'calculate' to calculate
             </span>
         </div>
         <div>
-            Door Width: 
-            <span id="doorWidth">
+            Drawer Width: 
+            <span id="drawerWidth">
                 press 'calculate' to calculate
             </span>
         </div>
