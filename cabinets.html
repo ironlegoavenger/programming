@@ -38,19 +38,8 @@
                 const overlap = document.getElementById('overlap').value
                 const air = document.getElementById('air').value                
                 const doorSpacing = document.getElementById('doorSpacing').value
-                const doorWidth = +doorOpeningWidth + (doorOverlayWidth * 2);
+                let doorWidth = (+doorOpeningWidth + (+doorOverlayWidth * 2)) / doors;
                 const doorHeight = +doorOpeningHeight + (doorOverlayHeight * 2)
-                
-                const stuffToDisplay = {
-                    doorHeight: +doorOpeningHeight + (doorOverlayHeight * 2),
-                    doorWidth: +doorOpeningWidth + (doorOverlayWidth * 2),
-                    panelHeight: +doorHeight - (+stileAndRail * 2) + +overlap - +air,
-                    panelWidth: +doorWidth - (+stileAndRail * 2) + +overlap - +air,
-                };
-
-
-                // let awesomeness = 42;
-
 
                 switch(+doors) {
                     case 0:
@@ -63,12 +52,24 @@
                         break;
                     case 2:
                         // awesomeness = Math.pow(awesomeness, Math.pow(awesomeness, awesomeness));
-                        stuffToDisplay['doorWidth'] = ((+doorOpeningWidth + (+doorOverlayWidth * 2) - +doorSpacing) / 2); 
+                        doorWidth = ((+doorOpeningWidth + (+doorOverlayWidth * 2) - +doorSpacing) / 2); 
                         break;
                     default:
                         // awesomeness = 0;
                         break;
                 }
+                
+                const stuffToDisplay = {
+                    doorHeight: doorHeight,
+                    doorWidth: doorWidth,
+                    panelHeight: +doorHeight - (+stileAndRail * 2) + +overlap - +air,
+                    panelWidth: +doorWidth - (+stileAndRail * 2) + ((+overlap + +air) * 2),
+                };
+
+
+                // let awesomeness = 42;
+
+
 
                 for (const [label, value] of Object.entries(stuffToDisplay)){
                     document.getElementById(label).innerText = value
@@ -111,7 +112,7 @@
             </div> 
             <div>
                 Overlap (Inches): 
-                <input type="text" id="overlap" value="0"/>
+                <input type="text" id="overlap" value="0.375"/>
             </div> 
             <div>
                 Air (Inches): 
