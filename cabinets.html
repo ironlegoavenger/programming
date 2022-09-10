@@ -40,6 +40,10 @@
                 const doorSpacing = document.getElementById('doorSpacing').value
                 let doorWidth = (+doorOpeningWidth + (+doorOverlayWidth * 2)) / doors;
                 const doorHeight = +doorOpeningHeight + (doorOverlayHeight * 2)
+                const panelWidth = +doorWidth - (+stileAndRail * 2) + ((+overlap + +air) * 2)
+                
+                const panelHeight = +doorHeight - (+stileAndRail * 2) + +overlap - +air
+                const railLength = panelWidth + (air * 2)
 
                 switch(+doors) {
                     case 0:
@@ -58,16 +62,31 @@
                         // awesomeness = 0;
                         break;
                 }
+
+            
+
                 
                 const stuffToDisplay = {
                     doorHeight: doorHeight,
                     doorWidth: doorWidth,
-                    panelHeight: +doorHeight - (+stileAndRail * 2) + +overlap - +air,
-                    panelWidth: +doorWidth - (+stileAndRail * 2) + ((+overlap + +air) * 2),
+                    panelHeight: panelHeight,
+                    panelWidth: panelWidth,
+                    railLength: railLength
                 };
 
 
                 // let awesomeness = 42;
+
+                // const arr = [22, "my mom", [], 2]
+                // for (const foo of arr){
+                    // alert(foo)
+                // }
+
+                // const d = "daniel"
+                // for (const c of d)
+                // {
+                    // alert(c)
+                // }
 
 
 
@@ -145,11 +164,18 @@
                 press 'calculate' to calculate
             </span>
         </div>
+        <div>
+            Rail Length: 
+            <span id="railLength">
+                press 'calculate' to calculate
+            </span>
+        </div>
             <table id='legend' border="1">
             <tr>
                 <th>Fraction</th>
                 <th>Decimal</th>
             </tr>
+            
 
         </table>
     </body>
