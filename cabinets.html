@@ -38,7 +38,7 @@
                 const overlap = document.getElementById('overlap').value
                 const air = document.getElementById('air').value                
                 const doorSpacing = document.getElementById('doorSpacing').value
-                let doorWidth = (+doorOpeningWidth + (+doorOverlayWidth * 2)) / doors;
+                const doorWidth = (+doorOpeningWidth + (+doorOverlayWidth * 2)) / doors;
                 const doorHeight = +doorOpeningHeight + (doorOverlayHeight * 2)
                 const panelWidth = +doorWidth - (+stileAndRail * 2) + ((+overlap + +air) * 2)
                 
